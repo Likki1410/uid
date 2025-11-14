@@ -1,0 +1,14 @@
+import 'dart:io'; 
+void main() { 
+stdout.write("How many Fibonacci numbers do you want? ");
+ 	int chosenNumber = int.parse(stdin.readLineSync() ?? '0'); 
+List result = fibonacciNumbers(chosenNumber); 
+print(result); 
+} // Function to calulcate the Fibonacci numbers
+ List fibonacciNumbers(int chosenNumber) { 
+List fibList = [1, 1];
+ 	for (var i = 0; i < chosenNumber; i++) { 
+fibList.add(fibList[i] + fibList[i + 1]);
+ }
+ return fibList; 
+}
