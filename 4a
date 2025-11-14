@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+void main() => runApp(MaterialApp(
+  initialRoute: '/',
+  routes: {
+    '/': (_) => const Home(),
+    '/second': (_) => const Sec(),
+  },
+));
+class Home extends StatelessWidget {
+  const Home({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Home")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () => Navigator.pushNamed(context, '/second'),
+          child: const Text("Go to Second"),
+        ),
+      ),
+    );
+  }
+}
+
+class Sec extends StatelessWidget {
+  const Sec({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Second")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text("Back"),
+        ),
+      ),
+    );
+  }
+}
