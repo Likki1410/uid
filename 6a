@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+  theme: ThemeData(
+    primarySwatch: Colors.pink,
+    textTheme: const TextTheme(
+      bodyMedium: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.pink),
+    ),
+  ),
+  home: H(),
+));
+
+class H extends StatelessWidget {
+  @override
+  Widget build(BuildContext c) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Theme Demo")),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("Styled Text!", style: Theme.of(c).textTheme.bodyMedium),
+            ElevatedButton(onPressed: (){}, child: Text("Styled Button"))
+          ],
+        ),
+      ),
+    );
+  }
+}
