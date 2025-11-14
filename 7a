@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(home: A()));
+
+class A extends StatefulWidget {
+  @override
+  State<A> createState() => _S();
+}
+
+class _S extends State<A> {
+  double s = 100;
+
+  @override
+  Widget build(BuildContext c) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Animation Demo")),
+      body: Center(
+        child: GestureDetector(
+          onTap: () => setState(() => s = s == 100 ? 180 : 100),
+          child: AnimatedContainer(
+            duration: Duration(seconds: 1),
+            width: s,
+            height: s,
+            color: Colors.purple,
+          ),
+        ),
+      ),
+    );
+  }
+}
